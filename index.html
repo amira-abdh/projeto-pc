@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas Simples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&display=swap" rel="stylesheet">
+    <style>
+        body {
+            color: #3e2723; /* marrom escuro */
+            background-color: #fff8e1; /* bege clarinho */
+            font-family: "Chakra Petch", sans-serif;
+            margin: 50px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #5d4037; /* marrom médio */
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        header {
+            border-bottom: solid 2px #8d6e63; /* marrom suave */
+            padding: 20px;
+            font-size: 25px;
+            color: #4e342e; /* marrom forte */
+            background-color: #d7ccc8; /* tom de cappuccino */
+            text-align: center;
+        }
+
+        header nav a {
+            color: #4e342e;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 20px;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .chamada {
+            background: #ffe0b2; /* bege/laranja claro */
+            padding-bottom: 80px;
+            padding-top: 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chamada-texto {
+            margin-right: 5%;
+        }
+
+        img {
+          height: 200px;
+          border-radius: 10px; /* deixa imagens mais bonitinhas */
+        }
+
+        .categoriavideos {
+          display: flex;
+          overflow-x: auto;
+          gap: 10px;
+        }
+
+        section {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .categoriavideos img {
+             opacity: 0.7;
+             transition: 0.3s;
+        }
+
+        .categoriavideos img:hover {
+             opacity: 1.0;
+             transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+   
+    <header>
+        <h1>Receitas Simples e Deliciosas</h1>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Vídeos</a>
+            <a href="#">Galeria</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Bolo de Chocolate Simples e Fofo 🍫</h1>
+
+        <!-- vídeo principal da receita -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gR3pD_mV1eA" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <h2>Modo de preparo</h2>
+        <p>Esse bolo de chocolate é rápido, fácil e delicioso. Você só precisa de farinha, açúcar, ovos, chocolate em pó, óleo e leite.  
+        Basta misturar todos os ingredientes no liquidificador, assar por 40 minutos e pronto!  
+        Uma receita perfeita para o café da tarde ou uma sobremesa simples que agrada a todos.</p>
+
+        <h2>Outros vídeos de receitas</h2>
+        <div class="categoriavideos">
+            <a href="https://www.youtube.com/watch?v=YQy4GgL25Gk" target="_blank">
+                <img src="https://img.youtube.com/vi/YQy4GgL25Gk/maxresdefault.jpg" alt="Bolo de cenoura com chocolate">
+            </a>
+            <a href="https://www.youtube.com/watch?v=jsvdA-GNw1g" target="_blank">
+                <img src="https://img.youtube.com/vi/jsvdA-GNw1g/maxresdefault.jpg" alt="Receita fácil de pão caseiro">
+            </a>
+            <a href="https://www.youtube.com/watch?v=Alz7ttAg6-s" target="_blank">
+                <img src="https://img.youtube.com/vi/Alz7ttAg6-s/maxresdefault.jpg" alt="Receita de brigadeiro">
+            </a>
+            <a href="https://www.youtube.com/watch?v=KOnF2xAfQx8" target="_blank">
+                <img src="https://img.youtube.com/vi/KOnF2xAfQx8/maxresdefault.jpg" alt="Receita de pudim">
+            </a>
+        </div>
+
+        <h2>Galeria de imagens</h2>
+        <div class="galeria">
+            <img src="https://www.receiteria.com.br/wp-content/uploads/bolo-de-chocolate-simples.jpg" 
+            alt="Bolo de chocolate simples">
+            <img src="https://img.cybercook.com.br/receitas/829/bolo-de-chocolate-simples-1.jpeg" 
+            alt="Bolo caseiro de chocolate">
+        </div>
+    </section>
+</body>
+</html>
