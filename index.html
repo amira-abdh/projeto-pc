@@ -1,137 +1,230 @@
-<!DOCTYPE html> 
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receitas Simples</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&display=swap" rel="stylesheet">
+    <title>Receitas de Bolo de Chocolate</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         body {
-            color: #3e2723; /* marrom escuro */
-            background-color: #fff8e1; /* bege clarinho */
-            font-family: "Chakra Petch", sans-serif;
-            margin: 50px;
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
         }
-
-        h1 {
-            font-size: 40px;
-            color: #5d4037; /* marrom médio */
-        }
-
-        p {
-            font-size: 20px;
-        }
-
+        
         header {
-            border-bottom: solid 2px #8d6e63; /* marrom suave */
-            padding: 20px;
-            font-size: 25px;
-            color: #4e342e; /* marrom forte */
-            background-color: #d7ccc8; /* tom de cappuccino */
+            background: linear-gradient(to right, #7d4b2e, #4e2a1c);
+            color: white;
             text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        header nav a {
-            color: #4e342e;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 20px;
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-
-        header nav a:hover {
-            text-decoration: underline;
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .chamada {
-            background: #ffe0b2; /* bege/laranja claro */
-            padding-bottom: 80px;
-            padding-top: 80px;
-            display: flex;
-            justify-content: center;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-
-        .chamada-texto {
-            margin-right: 5%;
-        }
-
-        img {
-          height: 200px;
-          border-radius: 10px; /* deixa imagens mais bonitinhas */
-        }
-
+        
         .categoriavideos {
-          display: flex;
-          overflow-x: auto;
-          gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-
-        section {
-          padding-left: 20px;
-          padding-right: 20px;
+        
+        .video-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
-
-        .categoriavideos img {
-             opacity: 0.7;
-             transition: 0.3s;
+        
+        .video-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
-
-        .categoriavideos img:hover {
-             opacity: 1.0;
-             transform: scale(1.05);
+        
+        .video-item a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .video-thumb {
+            position: relative;
+            padding-top: 56.25%; /* Proporção 16:9 */
+            overflow: hidden;
+            background: #7d4b2e;
+        }
+        
+        .video-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-item:hover .video-thumb img {
+            transform: scale(1.05);
+        }
+        
+        .video-info {
+            padding: 1.2rem;
+        }
+        
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #4e2a1c;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .play-button::before {
+            content: '';
+            border-style: solid;
+            border-width: 10px 0 10px 16px;
+            border-color: transparent transparent transparent #7d4b2e;
+            margin-left: 4px;
+        }
+        
+        .video-item:hover .play-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #4e2a1c;
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .categoriavideos {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categoriavideos {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
 </head>
-
 <body>
-   
     <header>
-        <h1>Receitas Simples e Deliciosas</h1>
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Vídeos</a>
-            <a href="#">Galeria</a>
-            <a href="#">Contato</a>
-        </nav>
+        <h1>Receitas de Bolo de Chocolate</h1>
+        <p class="subtitle">Descubra as melhores receitas de bolo de chocolate com nosso passo a passo em vídeo. Delicie-se com essas opções incríveis!</p>
     </header>
-
-    <section>
-        <h1>Bolo de Chocolate Simples e Fofo 🍫</h1>
-
-        <!-- vídeo principal da receita -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/gR3pD_mV1eA" 
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-            encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-        <h2>Modo de preparo</h2>
-        <p>Esse bolo de chocolate é rápido, fácil e delicioso. Você só precisa de farinha, açúcar, ovos, chocolate em pó, óleo e leite.  
-        Basta misturar todos os ingredientes no liquidificador, assar por 40 minutos e pronto!  
-        Uma receita perfeita para o café da tarde ou uma sobremesa simples que agrada a todos.</p>
-
-        <h2>Outros vídeos de receitas</h2>
+    
+    <div class="container">
         <div class="categoriavideos">
-            <a href="https://www.youtube.com/watch?v=CdzX0wy2McM" target="_blank">
-                <img src="https://youtu.be/CdzX0wy2McM?si=cV1p6C8agqDl-dXm/maxresdefault.jpg" alt="Bolo de cenoura com chocolate">
-            </a>
-            <a href="https://www.youtube.com/watch?v=jsvdA-GNw1g" target="_blank">
-                <img src="https://img.youtube.com/vi/jsvdA-GNw1g/maxresdefault.jpg" alt="Receita fácil de pão caseiro">
-            </a>
-            <a href="https://www.youtube.com/watch?v=Alz7ttAg6-s" target="_blank">
-                <img src="https://img.youtube.com/vi/Alz7ttAg6-s/maxresdefault.jpg" alt="Receita de brigadeiro">
-            </a>
-            <a href="https://www.youtube.com/watch?v=KOnF2xAfQx8" target="_blank">
-                <img src="https://img.youtube.com/vi/KOnF2xAfQx8/maxresdefault.jpg" alt="Receita de pudim">
-            </a>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=l2me6AF1BoA" target="_blank">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/l2me6AF1BoA/maxresdefault.jpg" alt="Receita de bolo chocolatudo">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bolo Chocolatudo</h3>
+                        <p>Uma receita incrível para os verdadeiros amantes de chocolate.</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=l2me6AF1BoA" target="_blank">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/l2me6AF1BoA/maxresdefault.jpg" alt="Receita fácil de bolo de chocolate">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bolo de Chocolate Fácil</h3>
+                        <p>Perfeito para iniciantes, essa receita simples vai surpreender.</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=QFMxJWh3mqE" target="_blank">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/QFMxJWh3mqE/maxresdefault.jpg" alt="Receita de bolo de brigadeiro">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bolo de Brigadeiro</h3>
+                        <p>Uma combinação perfeita de bolo fofinho e brigadeiro cremoso.</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=2O3EA0HWz74" target="_blank">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/2O3EA0HWz74/maxresdefault.jpg" alt="Receita de bolo de chocolate cremoso">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bolo de Chocolate Cremoso</h3>
+                        <p>Para quem adora uma textura úmida e cremosa no bolo.</p>
+                    </div>
+                </a>
+            </div>
         </div>
-
-        <h2>Galeria de imagens</h2>
-        <div class="galeria">
-            <img src="https://www.receiteria.com.br/wp-content/uploads/bolo-de-chocolate-simples.jpg" 
-            alt="Bolo de chocolate simples">
-            <img src="https://img.cybercook.com.br/receitas/829/bolo-de-chocolate-simples-1.jpeg" 
-            alt="Bolo caseiro de chocolate">
-        </div>
-    </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 Receitas de Chocolate - Todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
